@@ -1,5 +1,5 @@
 // app/page.tsx
-import lawsData from "./data/laws.json";
+import lawsData from "@/app/data/laws.json";
 
 export default function Home() {
   // Transform row-based JSON into an array of law objects
