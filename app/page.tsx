@@ -1,6 +1,16 @@
 // app/page.tsx
 import lawsData from "@/app/data/laws";
 
+const transformed = Object.keys(lawsData[0])
+  .filter(key => key !== "Bill")
+  .map(billId => {
+    const billData: Record<string, string> = { Bill: billId };
+    lawsData.forEach(row => {
+      billData[row.Bill] = row[billId];
+    });
+    return billData;
+  });
+
 export default function Home() {
   // Transform row-based JSON into an array of law objects
   const transformed = Object.keys(lawsData[0])
